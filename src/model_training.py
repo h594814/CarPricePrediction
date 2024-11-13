@@ -16,6 +16,8 @@ def train_model():
     df = pd.read_csv('data/processed_data.csv')
     print("Processed data loaded.")
 
+    df.columns = df.columns.astype(str)
+
     # Separate features and target variable
     X = df.drop('log_price', axis=1)
     y = df['log_price']
@@ -36,6 +38,10 @@ def train_model():
     x_valid_scaled = scaler.transform(x_valid)
     x_test_scaled = scaler.transform(x_test)
     print("Feature scaling completed.")
+
+    x_train_scaled = pd.DataFrame(x_train_scaled, columns=x_train.columns)
+    x_valid_scaled = pd.DataFrame(x_valid_scaled, columns=x_train.columns)
+    x_test_scaled = pd.DataFrame(x_test_scaled, columns=x_train.columns)
 
     # Train the model
     print("Training the model...")
@@ -60,6 +66,8 @@ def train_model():
         os.makedirs('models', exist_ok=True)
         joblib.dump(model, 'models/car_price_predictor_model.pkl')
         joblib.dump(scaler, 'models/scaler.pkl')
+        feature_names = x_train.columns.tolist()
+        joblib.dump(feature_names, 'models/feature_names.pkl')
         print("Model and scaler saved successfully.")
     except Exception as e:
         print(f"Error saving model or scaler: {e}")

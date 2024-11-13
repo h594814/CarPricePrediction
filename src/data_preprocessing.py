@@ -6,6 +6,8 @@ import re
 import datetime
 from sklearn.preprocessing import OrdinalEncoder
 import joblib
+import os
+
 
 def preprocess_data():
     # Load data
@@ -122,6 +124,8 @@ def preprocess_data():
     categorical_cols = ['brand', 'fuel_type', 'transmission', 'int_col', 'ext_col']
     ordinal_encoder = OrdinalEncoder(handle_unknown='use_encoded_value', unknown_value=-1)
     df[categorical_cols] = ordinal_encoder.fit_transform(df[categorical_cols])
+
+    df.columns = df.columns.astype(str)
 
     # Save the processed data and encoder
     df.to_csv('data/processed_data.csv', index=False)

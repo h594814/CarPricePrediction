@@ -1,0 +1,2 @@
+Brand,Mileage,Fuel Type,Transmission,Exterior Color,Interior Color,Age,Horsepower,Engine Size (L),Number of Cylinders,"Accident History (0 = No, 1 = Yes)","Clean Title (0 = No, 1 = Yes)",Predicted Price,timestamp
+Ford,0,Electric,Automatic,black,black,0,0,0,0,,,,2024-11-13 16:59:13.315850
