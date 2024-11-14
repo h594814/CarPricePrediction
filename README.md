@@ -58,7 +58,7 @@ Numerical Features: Mileage, Age, Horsepower, Engine Size (L), Number of Cylinde
 Labels: The target variable is the sale price of the used cars.
 
 Data Collection and Availability
-Data was sourced from an existing used car sales database, containing approximately 40000 records. For supervised learning, the ground truth labels are the actual sale prices. To ensure label accuracy:
+Data was sourced from an existing used car sales database, containing approximately 4000 records. For supervised learning, the ground truth labels are the actual sale prices. To ensure label accuracy:
 
 Data Cleaning: Removed outliers and inconsistent entries.
 
